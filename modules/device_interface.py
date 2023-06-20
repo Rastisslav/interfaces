@@ -1,5 +1,7 @@
 class DeviceInterface:
-    def __init__(self, id, name, description, config,  mtu,  port_ide=None, connection=None, infra_type=None, type=None):
+    def __init__(self, id, name, description,
+                 config, mtu, port_ide=None, connection=None,
+                 infra_type=None, type=None):
         self.id = id
         self.connection = connection
         self.name = name
