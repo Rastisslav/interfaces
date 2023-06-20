@@ -4,7 +4,7 @@ from modules.device_interface import DeviceInterface
 
 interfaces = []
 
-
+# load interface to class
 def to_class(name, unit, id):
 
     name = name + str(unit["name"])
@@ -20,12 +20,11 @@ def to_class(name, unit, id):
         mtu = None
 
     port_ide = None
-
+    
+    # check for id of portchannel
     if "Cisco-IOS-XE-ethernet:channel-group" in unit:
-
         port_ide_name = 'Port-channel' + \
             str(unit["Cisco-IOS-XE-ethernet:channel-group"]["number"])
-        
         for obj in interfaces:
             if obj.name == port_ide_name:
                 port_ide = obj.id
@@ -47,9 +46,10 @@ def extract_json():
                                   ["Cisco-IOS-XE-native:native"]
                                   ["interface"])
 
+        # these interfaces can be added later to dictionary
+        bdi_dict = interface_layer["BDI"]                      
+        loopback = interface_layer["Loopback"]  
 
-        bdi_dict = interface_layer["BDI"]                       # this interface can be added later to dict -> interfaces_to_parse
-        loopback = interface_layer["Loopback"]                  # this interface can be added later to dict -> interfaces_to_parse
         port_channel = interface_layer["Port-channel"]
         tengigabit = interface_layer["TenGigabitEthernet"]
         gigabit = interface_layer["GigabitEthernet"]
@@ -63,6 +63,6 @@ def extract_json():
                 interfaces.append(to_class(name, unit, id))
                 id += 1
 
-
+# return list of classes with information about interfaces
 def get_list_of_interfaces():
     return interfaces

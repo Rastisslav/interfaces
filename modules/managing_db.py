@@ -61,15 +61,15 @@ def add_to_table(list):
                                                     %s, 
                                                     %s)'''
 
-        cursor.execute(sql,(unit.id,
-                            unit.connection,
-                            unit.name,
-                            unit.description,
-                            Json(unit.config),
-                            unit.type,
-                            unit.infra_type,
-                            unit.port_ide,
-                            unit.mtu))
+        cursor.execute(sql, (unit.id,
+                             unit.connection,
+                             unit.name,
+                             unit.description,
+                             Json(unit.config),
+                             unit.type,
+                             unit.infra_type,
+                             unit.port_ide,
+                             unit.mtu))
 
 
 def quit_db():
