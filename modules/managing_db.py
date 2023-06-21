@@ -17,7 +17,7 @@ POSTGRES_PORT = os.getenv('POSTGRES_PORT')
 conn = psycopg2.connect(database=POSTGRES_DB,
                         user=POSTGRES_USER,
                         password=POSTGRES_PASSWORD,
-                        host=POSTGRES_DB,
+                        host=POSTGRES_HOST,
                         port=POSTGRES_PORT)
 
 cursor = conn.cursor()
