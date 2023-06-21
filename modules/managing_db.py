@@ -17,7 +17,7 @@ POSTGRES_PORT = os.getenv('POSTGRES_PORT')
 conn = psycopg2.connect(database=POSTGRES_DB,
                         user=POSTGRES_USER,
                         password=POSTGRES_PASSWORD,
-                        host='db',
+                        host=POSTGRES_DB,
                         port=POSTGRES_PORT)
 
 cursor = conn.cursor()
@@ -42,23 +42,23 @@ def create_db_and_table():
 def add_to_table(list):
 
     for unit in list:
-        sql = '''INSERT INTO interfaces(id, 
-                                        connection, 
-                                        name, 
-                                        description, 
-                                        config, 
-                                        type, 
-                                        infra_type, 
+        sql = '''INSERT INTO interfaces(id,
+                                        connection,
+                                        name,
+                                        description,
+                                        config,
+                                        type,
+                                        infra_type,
                                         port_channel_id,
                                         max_frame_size)
-                                            VALUES (%s, 
-                                                    %s, 
-                                                    %s, 
-                                                    %s, 
-                                                    %s, 
-                                                    %s, 
-                                                    %s, 
-                                                    %s, 
+                                            VALUES (%s,
+                                                    %s,
+                                                    %s,
+                                                    %s,
+                                                    %s,
+                                                    %s,
+                                                    %s,
+                                                    %s,
                                                     %s)'''
 
         cursor.execute(sql, (unit.id,
