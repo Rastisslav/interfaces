@@ -1,25 +1,24 @@
 
 # Extracting device interface configuration
-
-This is Docker-compose app constisting of two parts, Python and Postgres Database.
-App's purpose is to parse Json file from where it extracts needed data and then uploads them to Database. Whole app can be run via one command 
+This is a Docker-compose app that consists of two parts: Python and a Postgres database.
+The app's purpose is to parse a JSON file, from which it extracts needed data and then uploads them to the database. The whole app can be run with one command.
 
 
 
 
 ## Python part
 
-Python part parses Json data and then uploads them to Postgres Database.
+The Python part parses JSON data and then uploads them to the Postgres database.
 
-It does so by calling main.py file. In this file, the extract_json() function is called. It filters data to needed sublists and here we can in future alter the code to implement more interfaces. 
+It does so by calling the main.py file. In this file, the extract_json() function is called. It filters data into needed sublists and here we can  alter the code to implement more interfaces. 
 
-Then it calls to_class() function. This function creates object instances with needed data put inside. Those obects are the stored to "interfaces" list.
+Then it calls the "to_class()" function. This function creates object instances with the needed data inside. Those objects are then stored in the "interfaces" list.
 
-Function get_list_of_interfaces() then retrieves this list of objects.
+Function "get_list_of_interfaces()" then retrieves this list of objects.
 
-After succesful data parse, python creates connection to database. It creates table interfaces viac function "create_db_and_table()". Then adds data from previous object list into table via "add_to_table()" function.
+After successful data parsing, Python creates a connection to the database. It creates table interfaces via the function "create_db_and_table()". Then it adds data from the previous object list into the table via the "add_to_table()" function.
 
-Connection to database is closed via funciton "quit_db"
+The connection to the database is closed via the function "quit_db()".
 ## Database part
 
 Database is created by docker-compose.yaml file. User name, password and name of database is fetched from .env file.
@@ -60,4 +59,8 @@ To run this project, you will need to add the following environment variables to
 `POSTGRES_HOST`
 
 `POSTGRES_PORT`
+
+## Scrreenshot of table after running the app
+![scr](https://github.com/Rastisslav/interfaces/assets/99832718/5560f90f-0d34-43ee-8048-56fd2596fc23)
+
 
