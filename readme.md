@@ -10,13 +10,13 @@ The app's purpose is to parse a JSON file, from which it extracts needed data an
 
 The Python part parses JSON data and then uploads them to the Postgres database.
 
-It does so by calling the main.py file. In this file, the extract_json() function is called. It filters data into needed sublists and here we can  alter the code to implement more interfaces. 
+It does so by calling the main.py file. In this file, the "extract_json()" function is called. It filters data into needed sublists and here we can  alter the code to implement more interfaces. 
 
 Then it calls the "to_class()" function. This function creates object instances with the needed data inside. Those objects are then stored in the "interfaces" list.
 
 Function "get_list_of_interfaces()" then retrieves this list of objects.
 
-After successful data parsing, Python creates a connection to the database. It creates table interfaces via the function "create_db_and_table()". Then it adds data from the previous object list into the table via the "add_to_table()" function.
+After successful data parsing, Python creates a connection to the database. It creates table name "interfaces" via the function "create_db_and_table()". Then it adds data from the previous object list into the table via the "add_to_table()" function.
 
 The connection to the database is closed via the function "quit_db()".
 ## Database part
