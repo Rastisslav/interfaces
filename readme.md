@@ -60,7 +60,7 @@ To run this project, you will need to add the following environment variables to
 
 `POSTGRES_PORT`
 
-## Scrreenshot of table after running the app
+## Screenshot of table after running the app
 ![scr](https://github.com/Rastisslav/interfaces/assets/99832718/5560f90f-0d34-43ee-8048-56fd2596fc23)
 
 
